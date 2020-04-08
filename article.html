@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="官网">
+    <meta name="author" content="MadMay">
+    <title>贵州茅台爱心酒业有限公司</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/pe-icons.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/jquery.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/logo1.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/logo1.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/logo1.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/logo1.png">
+    <link rel="apple-touch-icon" href="images/logo1.png">
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<style type="text/css">
+	    html,body{margin:0;padding:0;}
+	    .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+	    .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+		.el-pager li:hover,.el-select-dropdown__item.selected,.el-pagination button:hover{
+			color:#860000;
+		}
+		.el-pager li.active{
+			background-color: #860000;
+			color:#fff;
+		}
+		.el-pagination{
+			white-space: pre-wrap;
+			padding:20px;
+		}
+	</style>
+</head><!--/head-->
+<body>
+<div id="app">
+	<div id="preloader"></div>
+		<div class="header"></div>
+	    <section id="single-page-slider" class="no-margin" ref="article">
+	        <img class="about-img" src="./images/bg/article-bg.jpg">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-md-12">
+	                    <div class="center fade-down section-heading">
+	                        <h2 class="main-title">品酒知识</h2>
+	                        <hr>
+	                        <p>品酒品人生</p>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </section><!--/#main-slider-->
+	
+	    <div id="content-wrapper">
+	        <section id="story">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 fade-up intro-con" style="padding:10px 0 10px 0;">
+							<div class="artList" v-for="(item,index) in pageCont" :key="index">
+								<div class="item">
+									<a :href="'article-detail.html?id='+item.id" class="alink"></a>
+										<div class="col-xs-12 col-sm-9 he">
+											<div class="article-title hid">
+												<span class="tag" v-show="item.id===1">NEW</span>
+												<span class="art-tit hid">{{item.title}}</span>
+												<div class="subTit hidden-xs">{{item.samary}}</div>
+												<div class="hidden-xs"  style="text-align: left;margin-top:20px">
+												    <a :href="'article-detail.html?id='+item.id" class="btn btn-outlined btn-primary" style="padding: 6px 12px;">查看详情</a>
+												</div>
+											</div>
+											<div class="art-time">{{item.time}}</div>
+										</div>
+										<div class="hidden-xs col-sm-3">
+											<div class="img-con">
+												<img class="img1" :src="item.url" >
+											</div>
+										</div>
+								</div>
+							</div>
+							<el-pagination class=""
+							      @size-change="handleSizeChange"
+							      @current-change="handleCurrentChange"
+							      :current-page="1"
+							      :page-sizes="[4, 6, 33, 90]"
+							      :page-size="4"
+							      layout="total, sizes, prev, pager, next, jumper"
+							      :total="total"
+								  >
+							    </el-pagination>
+						</div>
+						
+					</div>
+				</div>
+			</section>
+			<div id="footer-wrapper">
+				<section id="bottom" class="">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-2 col-sm-6 about-us-widget fade-down ">
+								<h4>走进爱心</h4>
+								<p><a href="idea.html">企业理念</a></p>
+								<p><a href="story.html">品牌故事</a></p>
+								<p><a href="honor.html">企业荣誉</a></p>
+							</div><!--/.col-md-3-->
+			
+							<div class="col-md-2 col-sm-6 fade-down">
+								<h4>产品展示</h4>
+								<div>
+									<p><a href="product.html">老酒王系列</a></p>
+									<p><a href="product.html">企酱系列</a></p>
+									<p><a href="product.html">老酒王集市店</a></p>
+								</div>
+							</div><!--/.col-md-3-->
+			
+							<div class="col-md-5 col-sm-6 colo fade-down">
+								<h4>联系我们</h4>
+									<p>公司：贵州茅台镇爱心酒业（集团）有限公司</p>
+									<p>电话：18985675777</p>
+									<p>地址：贵州茅台镇</p>
+							</div><!--/.col-md-3-->
+			
+							<div class="col-md-3 col-sm-6 fade-down">
+								<h4>微信咨询</h4>
+								<div id="wx">
+									<img src="http://www.axjyjt.com/upload/logo/1568795710727789.png" >
+								</div>
+							</div> <!--/.col-md-3-->
+						</div>
+					</div>
+				</section><!--/#bottom-->
+			
+				<footer id="footer" class="">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-8">
+								版权所有&copy; 2020 茅台镇爱心酒业集团
+							</div>
+						</div>
+					</div>
+				</footer><!--/#footer-->
+			</div>
+			<div class="goTop hidden-xs">
+					<div class="square">
+						<a id="gototop" class="gototop" href="#"><i class="fa fa-chevron-up"></i></a>
+					</div>
+			</div>
+	    </div>
+	
+</div>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/init.js"></script>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</body>
+</html>
+<script type="text/javascript">
+	const vm = new Vue({
+		el:'#app',
+		data:{
+			device:window.screen.width,//检测设备
+			pageSize:4,//每页条数
+			currentPpage:1,//当前页
+			total:0,//总条数
+			productList:[
+				{type:1,url:'./images/detailImg/art1.jpg',time:'2019-05-13',title:'怎样辨别酱香酒的好坏',id:1,samary:'不要空腹饮酒，因为空腹时酒精吸收快，人容易喝醉；而且空腹喝酒对胃肠道伤害大，容易引起胃出血、胃溃疡，最好的预防方法就是在喝酒之前，先行食用油质食物，如肥肉、蹄膀等，或饮用牛奶利用食物中脂肪不易消化的特性来保护胃部，以防止酒精渗透胃壁。不要空腹饮酒，这是饮酒不醉的主要诀窍。因为这样可使乙醇在体内吸收时间延长。'},
+				{type:1,url:'./images/detailImg/art2.jpg',time:'2019-05-05',title:'白酒能放冰箱吗？可以加冰冷饮吗？',id:2,samary:'1、酱酒鉴评的基本方法有哪些?答：酱酒鉴评一般以感官鉴评为主，也可以通过科学仪器分析酱酒详细指标'},
+				{type:1,url:'./images/detailImg/art3.png',time:'2019-03-01',title:'品酒师品酒必备专业知识',id:3,samary:'品酒基础01掌握标准经过一定的练习熟练掌握品酒方法能够理解并用专业词语评价酒的优劣和差异点'},
+				{type:1,url:'./images/detailImg/art4.jpg',time:'2019-02-09',title:'品酒小技巧！',id:4,samary:'先观其色、再闻其香、最后尝其味。看挂杯，轻轻地摇杯让酒液在杯壁上均匀地转圈流动，停下来让酒液回流，但这并不是挂杯。'},
+				{type:2,url:'./images/detailImg/101.jpg',time:'2019-01-05',title:'常喝白酒应该注意的事项！',id:5,samary:'不要空腹饮酒，因为空腹时酒精吸收快，人容易喝醉；而且空腹喝酒对胃肠道伤害大，容易引起胃出血、胃溃疡，最好的预防方法就是在喝酒之前，先行食用油质食物，如肥肉、蹄膀等，或饮用牛奶利用食物中脂肪不易消化的特性来保护胃部，以防止酒精渗透胃壁。'},
+				{type:2,url:'./images/detailImg/102.jpg',time:'2019-01-05',title:'常喝白酒应该注意的事项！2',id:6,samary:'不要空腹饮酒，因为空腹时酒精吸收快，人容易喝醉；而且空腹喝酒对胃肠道伤害大，容易引起胃出血、胃溃疡，最好的预防方法就是在喝酒之前，先行食用油质食物，如肥肉、蹄膀等，或饮用牛奶利用食物中脂肪不易消化的特性来保护胃部，以防止酒精渗透胃壁。'},
+				{type:2,url:'./images/detailImg/103.jpg',time:'2019-01-05',title:'常喝白酒应该注意的事项！3',id:7,samary:'不要空腹饮酒，因为空腹时酒精吸收快，人容易喝醉；而且空腹喝酒对胃肠道伤害大，容易引起胃出血、胃溃疡，最好的预防方法就是在喝酒之前，先行食用油质食物，如肥肉、蹄膀等，或饮用牛奶利用食物中脂肪不易消化的特性来保护胃部，以防止酒精渗透胃壁。'},
+				{type:2,url:'./images/detailImg/104.jpg',time:'2019-01-05',title:'常喝白酒应该注意的事项！4',id:8,samary:'不要空腹饮酒，因为空腹时酒精吸收快，人容易喝醉；而且空腹喝酒对胃肠道伤害大，容易引起胃出血、胃溃疡，最好的预防方法就是在喝酒之前，先行食用油质食物，如肥肉、蹄膀等，或饮用牛奶利用食物中脂肪不易消化的特性来保护胃部，以防止酒精渗透胃壁。'},
+				{type:2,url:'./images/detailImg/105.jpg',time:'2019-01-05',title:'常喝白酒应该注意的事项！5',id:9,samary:'不要空腹饮酒，因为空腹时酒精吸收快，人容易喝醉；而且空腹喝酒对胃肠道伤害大，容易引起胃出血、胃溃疡，最好的预防方法就是在喝酒之前，先行食用油质食物，如肥肉、蹄膀等，或饮用牛奶利用食物中脂肪不易消化的特性来保护胃部，以防止酒精渗透胃壁。'},
+				{type:2,url:'./images/detailImg/106.jpg',time:'2019-01-05',title:'常喝白酒应该注意的事项！6',id:10,samary:'不要空腹饮酒，因为空腹时酒精吸收快，人容易喝醉；而且空腹喝酒对胃肠道伤害大，容易引起胃出血、胃溃疡，最好的预防方法就是在喝酒之前，先行食用油质食物，如肥肉、蹄膀等，或饮用牛奶利用食物中脂肪不易消化的特性来保护胃部，以防止酒精渗透胃壁。'},
+				{type:2,url:'./images/detailImg/107.jpg',time:'2019-01-05',title:'常喝白酒应该注意的事项！7',id:11,samary:'不要空腹饮酒，因为空腹时酒精吸收快，人容易喝醉；而且空腹喝酒对胃肠道伤害大，容易引起胃出血、胃溃疡，最好的预防方法就是在喝酒之前，先行食用油质食物，如肥肉、蹄膀等，或饮用牛奶利用食物中脂肪不易消化的特性来保护胃部，以防止酒精渗透胃壁。'},
+				{type:2,url:'./images/detailImg/108.jpg',time:'2019-01-05',title:'常喝白酒应该注意的事项！8',id:12,samary:'不要空腹饮酒，因为空腹时酒精吸收快，人容易喝醉；而且空腹喝酒对胃肠道伤害大，容易引起胃出血、胃溃疡，最好的预防方法就是在喝酒之前，先行食用油质食物，如肥肉、蹄膀等，或饮用牛奶利用食物中脂肪不易消化的特性来保护胃部，以防止酒精渗透胃壁。'},
+				{type:2,url:'./images/detailImg/109.jpg',time:'2019-01-05',title:'常喝白酒应该注意的事项！9',id:13,samary:'不要空腹饮酒，因为空腹时酒精吸收快，人容易喝醉；而且空腹喝酒对胃肠道伤害大，容易引起胃出血、胃溃疡，最好的预防方法就是在喝酒之前，先行食用油质食物，如肥肉、蹄膀等，或饮用牛奶利用食物中脂肪不易消化的特性来保护胃部，以防止酒精渗透胃壁。'},
+				{type:2,url:'./images/detailImg/110.jpg',time:'2019-01-05',title:'常喝白酒应该注意的事项！10',id:14,samary:'不要空腹饮酒，因为空腹时酒精吸收快，人容易喝醉；而且空腹喝酒对胃肠道伤害大，容易引起胃出血、胃溃疡，最好的预防方法就是在喝酒之前，先行食用油质食物，如肥肉、蹄膀等，或饮用牛奶利用食物中脂肪不易消化的特性来保护胃部，以防止酒精渗透胃壁。'},
+				{type:2,url:'./images/detailImg/111.jpg',time:'2019-01-05',title:'常喝白酒应该注意的事项！11',id:15,samary:'不要空腹饮酒，因为空腹时酒精吸收快，人容易喝醉；而且空腹喝酒对胃肠道伤害大，容易引起胃出血、胃溃疡，最好的预防方法就是在喝酒之前，先行食用油质食物，如肥肉、蹄膀等，或饮用牛奶利用食物中脂肪不易消化的特性来保护胃部，以防止酒精渗透胃壁。'},
+				{type:2,url:'./images/detailImg/92.jpg',time:'2019-01-05',title:'常喝白酒应该注意的事项！12',id:16,samary:'不要空腹饮酒，因为空腹时酒精吸收快，人容易喝醉；而且空腹喝酒对胃肠道伤害大，容易引起胃出血、胃溃疡，最好的预防方法就是在喝酒之前，先行食用油质食物，如肥肉、蹄膀等，或饮用牛奶利用食物中脂肪不易消化的特性来保护胃部，以防止酒精渗透胃壁。'},
+			],//所有模拟数据
+			totalCont:[],//能展示的总条数
+			pageCont:[
+				{type:1,url:'./images/detailImg/art1.jpg',time:'2019-05-13',title:'怎样辨别酱香酒的好坏',id:1,samary:'不要空腹饮酒，因为空腹时酒精吸收快，人容易喝醉；而且空腹喝酒对胃肠道伤害大，容易引起胃出血、胃溃疡，最好的预防方法就是在喝酒之前，先行食用油质食物，如肥肉、蹄膀等，或饮用牛奶利用食物中脂肪不易消化的特性来保护胃部，以防止酒精渗透胃壁。不要空腹饮酒，这是饮酒不醉的主要诀窍。因为这样可使乙醇在体内吸收时间延长。'},
+				{type:1,url:'./images/detailImg/art2.jpg',time:'2019-05-05',title:'白酒能放冰箱吗？可以加冰冷饮吗？',id:2,samary:'1、酱酒鉴评的基本方法有哪些?答：酱酒鉴评一般以感官鉴评为主，也可以通过科学仪器分析酱酒详细指标'},
+				{type:1,url:'./images/detailImg/art3.png',time:'2019-03-01',title:'品酒师品酒必备专业知识',id:3,samary:'品酒基础01掌握标准经过一定的练习熟练掌握品酒方法能够理解并用专业词语评价酒的优劣和差异点'},
+				{type:1,url:'./images/detailImg/art4.jpg',time:'2019-02-09',title:'品酒小技巧！',id:4,samary:'先观其色、再闻其香、最后尝其味。看挂杯，轻轻地摇杯让酒液在杯壁上均匀地转圈流动，停下来让酒液回流，但这并不是挂杯。'},
+			],//当前页展示总条数
+		},
+		methods:{
+			//每页条数改变时触发
+			handleSizeChange:function(e){
+				this.pageSize = e>this.total?(this.total-1):e;
+				this.pageCont = this.totalCont.slice((this.currentPpage-1)*this.pageSize,this.currentPpage*this.pageSize);
+				window.scrollTo(0,this.$refs.article.offsetHeight)
+			},
+			//点击页码时触发
+			handleCurrentChange:function(e){
+				this.currentPpage = e;
+				this.pageCont = this.totalCont.slice((this.currentPpage-1)*this.pageSize,this.currentPpage*this.pageSize);
+				window.scrollTo(0,this.$refs.article.offsetHeight)
+			},
+			
+		},
+		mounted() {
+			//初始页码信息
+			this.totalCont = this.productList;
+			this.total = this.totalCont.length;
+		}
+	})
+</script>

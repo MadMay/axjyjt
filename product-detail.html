@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="官网">
+    <meta name="author" content="MadMay">
+    <title>贵州茅台爱心酒业有限公司</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/pe-icons.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/jquery.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/logo1.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/logo1.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/logo1.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/logo1.png">
+    <link rel="apple-touch-icon" href="images/logo1.png">
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head><!--/head-->
+<body style="background-color:#f8f8f8;">
+	<div id="app">
+		<div id="preloader"></div>
+			<div class="header"></div>
+			<img class="about-img has-margin" src="./images/item/product-bg.jpg">
+			<div class="position container white font"><h4 class="guide">当前位置:</h4><a class="link" href="product.html">产品展示</a>><span>产品详情</div>
+		    <div id="content-wrapper">
+		        <section id="about-us" class="white">
+		            <div class="container"  style="background-color: #fff;margin-bottom: 30px;">
+						<div class="row">
+							<div class="pro-title" style="text-align: center">
+								<h2 style="margin-top: 30px;">{{showData.title}}</h2>
+								<div class="subtitle">
+									<span class="time">发布时间：{{showData.time}}</span>
+									<span class="viewCount">浏览次数：666</span>
+								</div>
+							</div>
+							<hr >
+						</div>
+		                <div class="row">
+		                    <div class="col-md-12 fade-up intro-con" v-html="showData.content">
+								{{showData.content}}
+							</div>
+		                </div>
+						<div class="row bottom-r">
+							<div class="col-xs-12 col-sm-6 hid">
+								上一篇：<a :href="'product-detail.html?id='+(proIndex-1)" v-if="proIndex>1">{{data[proIndex-2].title}}</a>
+									<span v-else>已经是第一篇文章了</span>
+							</div>
+							<div class="col-xs-12 col-sm-6 txtright hid">
+								下一篇：<a :href="'product-detail.html?id='+(Number(proIndex)+1)" v-if="proIndex<data.length">{{data[proIndex].title}}</a>
+								<span v-else>已经是最后一篇文章了</span>
+							</div>
+		            </div>
+		        </section>
+				<div id="footer-wrapper">
+					<section id="bottom" class="">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-2 col-sm-6 about-us-widget fade-down ">
+									<h4>走进爱心</h4>
+									<p><a href="idea.html">企业理念</a></p>
+									<p><a href="story.html">品牌故事</a></p>
+									<p><a href="honor.html">企业荣誉</a></p>
+								</div><!--/.col-md-3-->
+				
+								<div class="col-md-2 col-sm-6 fade-down">
+									<h4>产品展示</h4>
+									<div>
+										<p><a href="product.html">老酒王系列</a></p>
+										<p><a href="product.html">企酱系列</a></p>
+										<p><a href="product.html">老酒王集市店</a></p>
+									</div>
+								</div><!--/.col-md-3-->
+				
+								<div class="col-md-5 col-sm-6 colo fade-down">
+									<h4>联系我们</h4>
+										<p>公司：贵州茅台镇爱心酒业（集团）有限公司</p>
+										<p>电话：18985675777</p>
+										<p>地址：贵州茅台镇</p>
+								</div><!--/.col-md-3-->
+				
+								<div class="col-md-3 col-sm-6 fade-down">
+									<h4>微信咨询</h4>
+									<div id="wx">
+										<img src="./images/erweima.png" >
+									</div>
+								</div> <!--/.col-md-3-->
+							</div>
+						</div>
+					</section><!--/#bottom-->
+				
+					<footer id="footer" class="">
+						<div class="container">
+							<div class="row">
+								<div class="col-sm-8">
+									版权所有&copy; 2020 茅台镇爱心酒业集团
+								</div>
+							</div>
+						</div>
+					</footer><!--/#footer-->
+				</div>
+				<div class="goTop hidden-xs">
+						<div class="square">
+							<a id="gototop" class="gototop" href="#"><i class="fa fa-chevron-up"></i></a>
+						</div>
+				</div>
+		    </div>
+		</div>
+	</div>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/init.js"></script>
+	<script src="./data/product.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://cdn.bootcss.com/vue/2.6.11/vue.js"></script>
+	<script src="https://cdn.bootcss.com/element-ui/2.13.0/index.js"></script>
+</body>
+</html>
+<script type="text/javascript">
+	const vm = new Vue({
+		el:'#app',
+		data:{
+			data:Data,
+			showData:{},//当前显示的文字
+			proIndex:1,
+		},
+		created() {
+		},
+		methods:{
+			loadData:function(){
+				var index = window.location.href.split("=")[1]
+				//console.log(index)
+				if(index>this.data.length||index == undefined){
+					this.showData.title = "哎呀该篇文章可能下架了呢！！！"
+					this.showData.id=19940804
+					console.log(2)
+					this.showData.time = "1994-08-04"
+					this.showData.content = `<div style="text-align:center">
+										<h1 style="margin-top:50px;text-align:center">404 NOT FOUND!</h1>
+										<a href="product.html" style="display:block;margin-bottom:50px;color:#860000" >返回产品展示页</a>
+									</div>`
+				}
+				else{
+					this.showData = this.data[index-1]
+					this.proIndex = index
+				}
+			}
+		},
+		mounted() {
+			this.$nextTick(function(){
+				this.loadData()
+				console.log(1)
+			})
+		}
+	})
+	vm.$forceUpdate()
+</script>

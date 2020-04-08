@@ -1,0 +1,105 @@
+<header class="navbar navbar-inverse navbar-fixed-top opaqued " role="banner">
+	<div class="container" >
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<i class="fa fa-bars"></i>
+			</button>
+			 <a class="navbar-brand logo" href="index.html"><img class="logo" src="./images/homeLogo.png" ></a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a class="mark btn" href="index.html">首页</a></li>
+				<li class="dropdown">
+				    <a class="mark btn" href="#" class="dropdown-toggle" data-toggle="dropdown">走进爱心 <i class="fa fa-angle-down"></i></a>
+				    <ul class="dropdown-menu">
+				        <li><a href="about-us.html">企业介绍</a></li>
+				        <li><a href="idea.html">企业理念</a></li>
+				        <li><a href="story.html">品牌故事</a></li>
+						<li><a href="honor.html">企业荣誉</a></li>
+				    </ul>
+				</li>
+				<li><a class="mark btn" href="product.html">产品展示</a></li>
+				<li><a class="mark btn" href="article.html">品酒知识</a></li>
+				<li><a class="mark btn" href="news.html">新闻动态</a></li>
+				<li><a class="mark btn" href="contact-us.html">联系我们</a></li>
+				<li class="hidden-xs">
+					<span class="glyphicon glyphicon-earphone" style="height: 45px;line-height: 45px;color:white;">18985675777</span>
+				</li>
+			   <!-- <li><span class="search-trigger"><i class="fa fa-search"></i></span></li> -->
+			</ul>
+		</div>
+	</div>
+</header><!--/header-->
+<style type="text/css">
+		.btn.disabled, .btn[disabled], fieldset[disabled] .btn{
+			opacity: 1;
+			outline: none;
+			border: none;
+			}
+		.dropdown:focus{
+			outline: none!important;
+			border: none!important;
+		}
+	</style>
+<script type="text/javascript">
+	var flag = true;
+	function detectmob() {
+			if( navigator.userAgent.match(/Android/i)
+			|| navigator.userAgent.match(/webOS/i)
+			|| navigator.userAgent.match(/iPhone/i)
+			|| navigator.userAgent.match(/iPad/i)
+			|| navigator.userAgent.match(/iPod/i)
+			|| navigator.userAgent.match(/BlackBerry/i)
+			|| navigator.userAgent.match(/Windows Phone/i)
+			){
+				return true;
+			}
+			else {
+				return false;
+			}
+	}
+	flag = detectmob();
+	if(flag){
+		$('.navbar-fixed-top').removeClass('opaqued');
+	}
+	else{
+		$('.navbar-fixed-top').addClass('opaqued');
+	}
+	var pat = new RegExp("index.html")
+	if(pat.test(window.location.href)){
+		  
+	}
+	else{
+		  $(".opaqued").css("backgroundColor","rgb(166,1,21)")
+	}
+	var url = window.location.href;
+	if(url.match(/index/g)){
+		$(".mark").eq(0).addClass('navbarAct disabled')
+		$(".mark").siblings().removeClass('navbarAct disabled')
+	}
+	else if(url.match(/(about|idea|story|honor)/g)){
+		$(".mark").eq(1).addClass('navbarAct')
+		$(".mark").siblings().removeClass('navbarAct disabled')
+	}
+	else if(url.match(/product/g)){
+		$(".mark").eq(2).addClass('navbarAct disabled')
+		$(".mark").siblings().removeClass('navbarAct disabled')
+	}
+	else if(url.match(/article/g)){
+		$(".mark").eq(3).addClass('navbarAct disabled')
+		$(".mark").siblings().removeClass('navbarAct disabled')
+	}
+	else if(url.match(/news/g)){
+		$(".mark").eq(4).addClass('navbarAct disabled')
+		$(".mark").siblings().removeClass('navbarAct disabled')
+	}
+	else if(url.match(/contact/g)){
+		$(".mark").eq(5).addClass('navbarAct disabled')
+		$(".mark").siblings().removeClass('navbarAct disabled')
+	}
+	else{
+		console.log("no need!")
+	}
+	
+</script>

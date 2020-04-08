@@ -1,20 +1,41 @@
 /*-----------------------------------------------------------------------------------*/
 /*  PORTFOLIO
 /*-----------------------------------------------------------------------------------*/
+var flag = true;
+function detectmob() {
+		if( navigator.userAgent.match(/Android/i)
+		|| navigator.userAgent.match(/webOS/i)
+		|| navigator.userAgent.match(/iPhone/i)
+		|| navigator.userAgent.match(/iPad/i)
+		|| navigator.userAgent.match(/iPod/i)
+		|| navigator.userAgent.match(/BlackBerry/i)
+		|| navigator.userAgent.match(/Windows Phone/i)
+		){
+			return true;
+		}
+		else {
+			return false;
+		}
+}
+$(window).resize(function(){
+	flag = detectmob();
+	if(flag){
+		$('.navbar-fixed-top').removeClass('opaqued');
+	}
+	else{
+		$('.navbar-fixed-top').addClass('opaqued');
+	}
+})
 $(window).load(function(){
   'use strict';
+  /***页眉页脚加载****/
+  $(".header").load("header.html")
   var portfolio_selectors = $('.portfolio-filter li a');
   if(portfolio_selectors!='undefined'){
-    var portfolio = $('.portfolio-items');
-    portfolio.isotope({
-      itemSelector : 'li',
-      layoutMode : 'fitRows'
-    });
     portfolio_selectors.on('click', function(){
+	  
       portfolio_selectors.removeClass('active');
       $(this).addClass('active');
-      var selector = $(this).attr('data-filter');
-      portfolio.isotope({ filter: selector });
       return false;
     });
   }
@@ -23,10 +44,6 @@ $(window).load(function(){
 jQuery(function($) {
 'use strict';
 	$('.tile-progress .tile-header').matchHeight();
-
-	var footerHeight = jQuery('#footer-wrapper').outerHeight();
-	jQuery('#content-wrapper').css('margin-bottom', footerHeight );
-
 	var windowsHeight = jQuery(window).height();
 	var navHeight = jQuery('navbar-fixed-top').outerHeight();
 	var newHeight = windowsHeight - navHeight + 30;
@@ -52,15 +69,23 @@ jQuery(function($) {
 });
 
 /*-----------------------------------------------------------------------------------*/
+/*  移动端检测
+/*-----------------------------------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------------------------------*/
 /*  FANCY NAV
 /*-----------------------------------------------------------------------------------*/
+
+
 $(window).scroll(function() {
 'use strict';
     var scroll_pos = 0;
     $(document).scroll(function() { 
-        var windowsHeight = $(window).height();
+        var windowsHeight = 300;
         scroll_pos = $(this).scrollTop();
-        if(scroll_pos > windowsHeight) {     	        
+		//console.log(flag,111)
+        if(scroll_pos > windowsHeight||flag) {     	        
             $('.navbar-fixed-top').removeClass('opaqued');
         } else {
             $('.navbar-fixed-top').addClass('opaqued');

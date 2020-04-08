@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="官网">
+    <meta name="author" content="MadMay">
+    <title>贵州茅台爱心酒业有限公司</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/pe-icons.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/jquery.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/logo1.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/logo1.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/logo1.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/logo1.png">
+    <link rel="apple-touch-icon" href="images/logo1.png">
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<style type="text/css">
+	    html,body{margin:0;padding:0;}
+	    .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+	    .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+		.el-pager li:hover,.el-select-dropdown__item.selected,.el-pagination button:hover{
+			color:#860000;
+		}
+		.el-pager li.active{
+			background-color: #860000;
+			color:#fff;
+		}
+		.el-pagination{
+			white-space: pre-wrap;
+		}
+	</style>
+</head><!--/head-->
+<body>
+<div id="app">
+	<div id="preloader"></div>
+		<div class="header"></div>
+	    <section id="single-page-slider" class="no-margin" ref="story">
+	        <img class="about-img" src="./images/item/product-bg.jpg">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-md-12">
+	                    <div class="center fade-down section-heading">
+	                        <h2 class="main-title">产品列表</h2>
+	                        <hr>
+	                        <p>一花一世界，一酒一人生。</p>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </section><!--/#main-slider-->
+	
+	    <div id="content-wrapper">
+	        <section id="story">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 fade-up intro-con" style="background-color: #f5f5f5;">
+							<ul class="portfolio-filter fade-down center" style="width: 100%;">
+							    <li><a class="btn btn-outlined btn-primary active" href="#" @click="chose('*')">全部</a></li>
+							    <li><a class="btn btn-outlined btn-primary" href="#" @click="chose(1)">老酒王系列</a></li>
+							    <li><a class="btn btn-outlined btn-primary" href="#" @click="chose(2)" >企酱系列</a></li>
+							    <li><a class="btn btn-outlined btn-primary" href="#" @click="chose(3)">老酒王集市店</a></li>
+							</ul><!--/#portfolio-filter-->
+							<el-row :gutter="20" >
+							  <el-col :span="device>768?8:24" v-for="(o, index) in pageCont" :key="index" style="margin-bottom: 20px;" >
+							    <el-card style="padding:0px">
+							      <div class="filter">
+									  <a :href="'product-detail.html?id='+o.id"><img :src="o.url" class="image" :title="o.title"></a>
+								  </div>
+							      <div style="padding: 14px 14px 0 14px">
+							        <div class="bottom clearfix">
+							          <time class="time">{{o.title}}</time>
+							          <a :href="'product-detail.html?id='+o.id" style="text-decoration: underline;float: right;">查看详情</a>
+							        </div>
+							      </div>
+							    </el-card>
+							  </el-col>
+							</el-row>
+							<el-pagination class=""
+							      @size-change="handleSizeChange"
+							      @current-change="handleCurrentChange"
+							      :current-page="1"
+							      :page-sizes="[6, 9, 33, 90]"
+							      :page-size="6"
+							      layout="total, sizes, prev, pager, next, jumper"
+							      :total="total"
+								  >
+							    </el-pagination>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div id="footer-wrapper">
+				<section id="bottom" class="">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-2 col-sm-6 about-us-widget fade-down ">
+								<h4>走进爱心</h4>
+								<p><a href="idea.html">企业理念</a></p>
+								<p><a href="story.html">品牌故事</a></p>
+								<p><a href="honor.html">企业荣誉</a></p>
+							</div><!--/.col-md-3-->
+			
+							<div class="col-md-2 col-sm-6 fade-down">
+								<h4>产品展示</h4>
+								<div>
+									<p><a href="product.html">老酒王系列</a></p>
+									<p><a href="product.html">企酱系列</a></p>
+									<p><a href="product.html">老酒王集市店</a></p>
+								</div>
+							</div><!--/.col-md-3-->
+			
+							<div class="col-md-5 col-sm-6 colo fade-down">
+								<h4>联系我们</h4>
+									<p>公司：贵州茅台镇爱心酒业（集团）有限公司</p>
+									<p>电话：18985675777</p>
+									<p>地址：贵州茅台镇</p>
+							</div><!--/.col-md-3-->
+			
+							<div class="col-md-3 col-sm-6 fade-down">
+								<h4>微信咨询</h4>
+								<div id="wx">
+									<img src="./images/erweima.png" >
+								</div>
+							</div> <!--/.col-md-3-->
+						</div>
+					</div>
+				</section><!--/#bottom-->
+			
+				<footer id="footer" class="">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-8">
+								版权所有&copy; 2020 茅台镇爱心酒业集团
+							</div>
+						</div>
+					</div>
+				</footer><!--/#footer-->
+			</div>
+			<div class="goTop hidden-xs">
+					<div class="square">
+						<a id="gototop" class="gototop" href="#"><i class="fa fa-chevron-up"></i></a>
+					</div>
+			</div>
+	    </div>
+	
+</div>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/init.js"></script>
+	<script src="https://cdn.bootcss.com/vue/2.6.11/vue.js"></script>
+	<script src="https://cdn.bootcss.com/element-ui/2.13.0/index.js"></script>
+</body>
+</html>
+<script type="text/javascript">
+	const vm = new Vue({
+		el:'#app',
+		data:{
+			device:window.screen.width,//检测设备
+			pageSize:6,//每页条数
+			currentPpage:1,//当前页
+			total:0,//总条数
+			productList:[
+				{type:1,url:'./images/item/j1.jpg',title:'《酱传》十年酿',id:1},
+				{type:1,url:'./images/item/j2.jpg',title:'《金醉郎》十五年陈酿',id:2},
+				{type:1,url:'./images/item/j3.jpg',title:'《老爸乐》一款会说话的酒',id:3},
+				{type:1,url:'./images/item/j4.jpg',title:'老酒王5年陈酿',id:4},
+				{type:1,url:'./images/item/j5.jpg',title:'老酒王30年陈酿',id:5},
+				{type:1,url:'./images/item/j6.jpg',title:'老酒王18年陈酿',id:6},
+				{type:3,url:'./images/item/j7.jpg',title:'淘宝店，老酒王集市店',id:7},
+				{type:2,url:'./images/item/j8.jpg',title:'封藏老酒',id:8},
+				{type:2,url:'./images/item/j9.jpg',title:'企酱匠藏',id:9},
+				{type:2,url:'./images/item/j10.png',title:'企酱鸿运酒',id:10},
+				{type:1,url:'./images/item/j11.png',title:'老酒王15年陈酿',id:11},
+				{type:1,url:'./images/item/j12.png',title:'老酒王10年陈酿',id:12},
+				{type:1,url:'./images/item/j13.png',title:'老酒王小酒',id:13},
+			],//所有模拟数据
+			totalCont:[],//能展示的总条数
+			pageCont:[
+				{type:1,url:'./images/item/j1.jpg',title:'《酱传》十年酿',id:1},
+				{type:1,url:'./images/item/j2.jpg',title:'《金醉郎》十五年陈酿',id:2},
+				{type:1,url:'./images/item/j3.jpg',title:'《老爸乐》一款会说话的酒',id:3},
+				{type:1,url:'./images/item/j4.jpg',title:'老酒王5年陈酿',id:4},
+				{type:1,url:'./images/item/j5.jpg',title:'老酒王30年陈酿',id:5},
+				{type:1,url:'./images/item/j6.jpg',title:'老酒王18年陈酿',id:6},
+			],//当前页展示总条数
+		},
+		methods:{
+			//每页条数改变时触发
+			handleSizeChange:function(e){
+				this.pageSize = e;
+				this.pageCont = this.totalCont.slice((this.currentPpage-1)*this.pageSize,this.currentPpage*this.pageSize);
+				window.scrollTo(0,this.$refs.story.offsetHeight)
+			},
+			//点击页码时触发
+			handleCurrentChange:function(e){
+				this.currentPpage = e;
+				this.pageCont = this.totalCont.slice((this.currentPpage-1)*this.pageSize,this.currentPpage*this.pageSize);
+				window.scrollTo(0,this.$refs.story.offsetHeight)
+			},
+			//顶部赛选时触发
+			chose:function(kind){
+				this.currentPpage = 1;
+				this.totalCont = this.productList.filter((item,index,arr)=>{
+					if(kind == "*"){
+						return item
+					}
+					else{
+						return item.type == kind
+					}
+				})
+				this.total = this.totalCont.length;
+				this.handleCurrentChange(this.currentPpage)
+			}
+		},
+		mounted() {
+			//初始页码信息
+			this.totalCont = this.productList;
+			this.total = this.totalCont.length;
+		}
+	})
+</script>

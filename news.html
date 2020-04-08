@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="官网">
+    <meta name="author" content="MadMay">
+    <title>贵州茅台爱心酒业有限公司</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/pe-icons.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/jquery.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/logo1.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/logo1.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/logo1.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/logo1.png">
+    <link rel="apple-touch-icon" href="images/logo1.png">
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<style type="text/css">
+	    html,body{margin:0;padding:0;}
+	    .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+	    .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+		.el-pager li:hover,.el-select-dropdown__item.selected,.el-pagination button:hover{
+			color:#860000;
+		}
+		.el-pager li.active{
+			background-color: #860000;
+			color:#fff;
+		}
+		.el-pagination{
+			white-space: pre-wrap;
+			padding:20px;
+		}
+	</style>
+</head><!--/head-->
+<body>
+<div id="app">
+	<div id="preloader"></div>
+		<div class="header"></div>
+	    <section id="single-page-slider" class="no-margin" ref="news">
+	        <img class="about-img" src="./images/bg/news-bg.jpg">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-md-12">
+	                    <div class="center fade-down section-heading">
+	                        <h2 class="main-title">新闻动态</h2>
+	                        <hr>
+	                        <p>时事新闻在线更新！</p>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </section><!--/#main-slider-->
+	
+	    <div id="content-wrapper">
+	        <section id="story">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 fade-up intro-con" style="padding:10px 0 10px 0;">
+							<div class="artList" v-for="(item,index) in pageCont" :key="index">
+								<div class="item">
+									<a :href="'news-detail.html?id='+item.id" class="alink"></a>
+										<div class="col-xs-12 col-sm-9 he">
+											<div class="article-title hid">
+												<span class="tag" v-show="item.id===1">NEW</span>
+												<span class="art-tit hid">{{item.title}}</span>
+												<div class="subTit hidden-xs">{{item.samary}}</div>
+												<div class="hidden-xs"  style="text-align: left;margin-top:20px">
+												    <a :href="'news-detail.html?id='+item.id" class="btn btn-outlined btn-primary" style="padding: 6px 12px;">查看详情</a>
+												</div>
+											</div>
+											<div class="art-time">{{item.time}}</div>
+										</div>
+										<div class="hidden-xs col-sm-3">
+											<div class="img-con">
+												<img class="img1" :src="item.url" >
+											</div>
+										</div>
+								</div>
+							</div>
+							<el-pagination class=""
+							      @size-change="handleSizeChange"
+							      @current-change="handleCurrentChange"
+							      :current-page="1"
+							      :page-sizes="[4, 6, 33, 90]"
+							      :page-size="4"
+							      layout="total, sizes, prev, pager, next, jumper"
+							      :total="total"
+								  >
+							    </el-pagination>
+						</div>
+						
+					</div>
+				</div>
+			</section>
+			<div id="footer-wrapper">
+				<section id="bottom" class="">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-2 col-sm-6 about-us-widget fade-down ">
+								<h4>走进爱心</h4>
+								<p><a href="idea.html">企业理念</a></p>
+								<p><a href="story.html">品牌故事</a></p>
+								<p><a href="honor.html">企业荣誉</a></p>
+							</div><!--/.col-md-3-->
+			
+							<div class="col-md-2 col-sm-6 fade-down">
+								<h4>产品展示</h4>
+								<div>
+									<p><a href="product.html">老酒王系列</a></p>
+									<p><a href="product.html">企酱系列</a></p>
+									<p><a href="product.html">老酒王集市店</a></p>
+								</div>
+							</div><!--/.col-md-3-->
+			
+							<div class="col-md-5 col-sm-6 colo fade-down">
+								<h4>联系我们</h4>
+									<p>公司：贵州茅台镇爱心酒业（集团）有限公司</p>
+									<p>电话：18985675777</p>
+									<p>地址：贵州茅台镇</p>
+							</div><!--/.col-md-3-->
+			
+							<div class="col-md-3 col-sm-6 fade-down">
+								<h4>微信咨询</h4>
+								<div id="wx">
+									<img src="http://www.axjyjt.com/upload/logo/1568795710727789.png" >
+								</div>
+							</div> <!--/.col-md-3-->
+						</div>
+					</div>
+				</section><!--/#bottom-->
+			
+				<footer id="footer" class="">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-8">
+								版权所有&copy; 2020 茅台镇爱心酒业集团
+							</div>
+						</div>
+					</div>
+				</footer><!--/#footer-->
+			</div>
+			<div class="goTop hidden-xs">
+					<div class="square">
+						<a id="gototop" class="gototop" href="#"><i class="fa fa-chevron-up"></i></a>
+					</div>
+			</div>
+	    </div>
+	
+</div>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/init.js"></script>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</body>
+</html>
+<script type="text/javascript">
+	const vm = new Vue({
+		el:'#app',
+		data:{
+			device:window.screen.width,//检测设备
+			pageSize:4,//每页条数
+			currentPpage:1,//当前页
+			total:0,//总条数
+			productList:[
+				{type:1,url:'./images/item/news1.jpg',time:'2019-07-04',title:'中国国酒茅台酱香酒勾调大师欲收关门弟子！！',id:1,samary:'2019.6.9日，中国酱香白酒勾调大师 徐强 在茅台爱心酒厂收下爱徒王玮先生，望王玮，努力学习，专研技术，将酱香白酒勾调技术传承下去。'},
+				{type:1,url:'./images/item/news2.jpg',time:'2019-03-21',title:'河北(韩总）成功在贵州茅台镇爱心酒厂封坛',id:2,samary:'恭喜河北(韩总）成功在贵州茅台镇爱心酒厂封坛，唯有酱香型酒是最适合储藏封坛，纯粮酿造，天然发酵，在封坛储存的过程中，酒体不断醇化、老熟，口感越来越醇厚，香味越来越丰满，越陈越香，越放越好喝。'},
+				{type:1,url:'./images/item/news7.jpg',time:'2019-09-29',title:'喝酒秘籍',id:3,samary:'在这个交际繁忙的时代，酒是必不可少的交友媒介，假期亲朋好友聚会，敬酒加陪酒，一口气干一杯，直喝得满面红光，说话都“拉长”了舌头。不能喝的也想着“一年就一次”硬撑着，喝高了中途呕吐掉，再空腹上阵。'},
+				{type:2,url:'./images/item/new1.jpg',time:'2019-02-09',title:'李保芳：茅台酒现在的年产量只够6000多万个家庭喝一次',id:4,samary:'茅台集团董事长、总经理李保芳28日出席博鳌亚洲论坛时表示，茅台现在全年的产量只有6000多万瓶，也就只能满足6000多万个家庭喝一次。'},
+				{type:1,url:'./images/item/news4.jpg',time:'2019-01-05',title:'北京中央禁毒部、政法部一行在王金材老先生的陪同下到茅台爱心酒厂体验茅台古法酿酒工艺，品味酱香老酒。',id:5,samary:'不要空腹饮酒，因为空腹时酒精吸收快，人容易喝醉；而且空腹喝酒对胃肠道伤害大，容易引起胃出血、胃溃疡，最好的预防方法就是在喝酒之前，先行食用油质食物，如肥肉、蹄膀等，或饮用牛奶利用食物中脂肪不易消化的特性来保护胃部，以防止酒精渗透胃壁。'},
+				{type:1,url:'./images/item/newscopy.jpg',time:'2019-01-05',title:'恭喜广州杨总与爱心酒厂签约定制酒，您的满意，是对我们最大的肯定',id:6,samary:'不要空腹饮酒，因为空腹时酒精吸收快，人容易喝醉；而且空腹喝酒对胃肠道伤害大，容易引起胃出血、胃溃疡，最好的预防方法就是在喝酒之前，先行食用油质食物，如肥肉、蹄膀等，或饮用牛奶利用食物中脂肪不易消化的特性来保护胃部，以防止酒精渗透胃壁。'},
+				{type:2,url:'./images/item/newscopy.jpg',time:'2019-01-05',title:'记住这些绝招，瞬间成为品酒大师！',id:7,samary:'评又称为品评、品鉴、鉴评，利用人的感觉器官（视觉、嗅觉、味觉）来鉴别酒类质量优劣的一种快速、准确的方法；即通过调动眼、鼻、口、手等各种不同的感官来充分体验美酒的乐趣、品鉴好酒之美！'},
+				{type:2,url:'./images/item/new2.png',time:'2019-07-01',title:'一图读懂，离开茅台再酿不出茅台酒！',id:8,samary:'不要空腹饮酒，因为空腹时酒精吸收快，人容易喝醉；而且空腹喝酒对胃肠道伤害大，容易引起胃出血、胃溃疡，最好的预防方法就是在喝酒之前，先行食用油质食物，如肥肉、蹄膀等，或饮用牛奶利用食物中脂肪不易消化的特性来保护胃部，以防止酒精渗透胃壁。'},
+				{type:2,url:'./images/item/new3.png',time:'2019-01-05',title:'你问我为什么喝酒，这八个理由够不够？',id:9,samary:'酒到底是什么？酒是满足人们物质、精神、嗜好需求的特殊食品。人是社会关系的总和，人不可能脱离社会而存活，酒是通往社会的一张特殊通行证。'},
+				{type:2,url:'./images/item/new4.png',time:'2019-01-05',title:'“茅台洗脚”！茅台酒的 “极限操作”！',id:10,samary:'不要空腹饮酒，因为空腹时酒精吸收快，人容易喝醉；而且空腹喝酒对胃肠道伤害大，容易引起胃出血、胃溃疡，最好的预防方法就是在喝酒之前，先行食用油质食物，如肥肉、蹄膀等，或饮用牛奶利用食物中脂肪不易消化的特性来保护胃部，以防止酒精渗透胃壁。'},
+				{type:2,url:'./images/item/new5.jpg',time:'2019-01-05',title:'喝酱酒前，为什么要先喝一口水',id:11,samary:'不要空腹饮酒，因为空腹时酒精吸收快，人容易喝醉；而且空腹喝酒对胃肠道伤害大，容易引起胃出血、胃溃疡，最好的预防方法就是在喝酒之前，先行食用油质食物，如肥肉、蹄膀等，或饮用牛奶利用食物中脂肪不易消化的特性来保护胃部，以防止酒精渗透胃壁。'},
+				{type:2,url:'./images/item/new6.jpg',time:'2019-01-05',title:'十年酿一酒，酱传酒的神奇酿造秘方',id:12,samary:'不要空腹饮酒，因为空腹时酒精吸收快，人容易喝醉；而且空腹喝酒对胃肠道伤害大，容易引起胃出血、胃溃疡，最好的预防方法就是在喝酒之前，先行食用油质食物，如肥肉、蹄膀等，或饮用牛奶利用食物中脂肪不易消化的特性来保护胃部，以防止酒精渗透胃壁。'},
+				{type:1,url:'./images/item/news5.png',time:'2019-01-05',title:'爱心酒业（集团）员工培训',id:13,samary:'   近日，茅台镇爱心酒业（集团）有限公司组织开展了每年一季度的新老员工培训，由我公司聘请的遵义高级培训师陈老师热情积极的进行开展，本次培训包括所有员工'},
+				{type:1,url:'./images/item/news6.jpg',time:'2019-01-05',title:'中国著名书法家陈洪和莅临茅台爱心酒厂参观实地考察。',id:14,samary:'中国著名书法家陈洪和莅临茅台爱心酒厂参观实地考察。'},
+				{type:1,url:'./images/item/news7.jpg',time:'2019-01-05',title:'男人为什么离不开酒？',id:15,samary:'男人的一生，绝大多数时间是和酒度过的。真正的男人不可以没有女人，更不可以没有酒。每个男人心里都有关于酒的回忆：有的意气风发，有的柔情绵绵，有的悲喜交加，有的则快意恩仇！酒与男人有着不解之缘，男人的情怀，全装在酒里。'},
+				{type:2,url:'./images/item/news8.jpg',time:'2019-01-05',title:'怎样才叫懂酒呢？',id:16,samary:'美酒，是生活的配角，也是生活乐趣的助推剂。喝酒，是一种休闲的生活方式，喝了，醉了，醒了，一切随缘，当然，更要看心情。真正爱酒的人，喝醉往往是情不自禁的......'},
+			],//所有模拟数据
+			totalCont:[],//能展示的总条数
+			pageCont:[
+				{type:1,url:'./images/item/news1.jpg',time:'2019-07-04',title:'中国国酒茅台酱香酒勾调大师欲收关门弟子！！',id:1,samary:'2019.6.9日，中国酱香白酒勾调大师 徐强 在茅台爱心酒厂收下爱徒王玮先生，望王玮，努力学习，专研技术，将酱香白酒勾调技术传承下去。'},
+				{type:1,url:'./images/item/news2.jpg',time:'2019-03-21',title:'河北(韩总）成功在贵州茅台镇爱心酒厂封坛',id:2,samary:'恭喜河北(韩总）成功在贵州茅台镇爱心酒厂封坛，唯有酱香型酒是最适合储藏封坛，纯粮酿造，天然发酵，在封坛储存的过程中，酒体不断醇化、老熟，口感越来越醇厚，香味越来越丰满，越陈越香，越放越好喝。'},
+				{type:1,url:'./images/item/news7.jpg',time:'2019-09-29',title:'喝酒秘籍',id:3,samary:'在这个交际繁忙的时代，酒是必不可少的交友媒介，假期亲朋好友聚会，敬酒加陪酒，一口气干一杯，直喝得满面红光，说话都“拉长”了舌头。不能喝的也想着“一年就一次”硬撑着，喝高了中途呕吐掉，再空腹上阵。'},
+				{type:2,url:'./images/item/new1.jpg',time:'2019-02-09',title:'李保芳：茅台酒现在的年产量只够6000多万个家庭喝一次',id:4,samary:'茅台集团董事长、总经理李保芳28日出席博鳌亚洲论坛时表示，茅台现在全年的产量只有6000多万瓶，也就只能满足6000多万个家庭喝一次。'},
+			],//当前页展示总条数
+		},
+		methods:{
+			//每页条数改变时触发
+			handleSizeChange:function(e){
+				this.pageSize = e>this.total?(this.total-1):e;
+				this.pageCont = this.totalCont.slice((this.currentPpage-1)*this.pageSize,this.currentPpage*this.pageSize);
+				window.scrollTo(0,this.$refs.news.offsetHeight)
+			},
+			//点击页码时触发
+			handleCurrentChange:function(e){
+				this.currentPpage = e;
+				this.pageCont = this.totalCont.slice((this.currentPpage-1)*this.pageSize,this.currentPpage*this.pageSize);
+				window.scrollTo(0,this.$refs.news.offsetHeight)
+			},
+			
+		},
+		mounted() {
+			//初始页码信息
+			this.totalCont = this.productList;
+			this.total = this.totalCont.length;
+		}
+	})
+</script>
